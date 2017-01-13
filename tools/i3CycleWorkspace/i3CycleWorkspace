@@ -1,0 +1,79 @@
+#!/usr/bin/env python2
+
+
+"""
+This script provides a way to cycle forward an backward through i3 workspaces.
+Usage:
+	./i3CycleWorkspace [next|previous]
+		If no argument is supplied, the default action is to switch to the next workspace.
+"""
+
+
+import json
+import subprocess
+import sys
+
+class I3Session:
+	"""
+	Class of i3 sessions. An i3 Session instance offers methods to switch between i3 workspaces.
+	"""
+
+	def __init__(self):
+		self.workspaces = subprocess.check_output(["i3-msg", "-t", "get_workspaces"])
+		self.workspaces = self.workspaces.decode("utf-8")
+		self.workspaces = json.loads(self.workspaces)
+		for i in range(len(self.workspaces)):
+			current = self.workspaces[i]
+			if (current["focused"]):
+				self.currentIndex = i
+
+	def getPreviousWorkspaceName(self):
+		"""
+		Returns the name of the previous workspace.
+		"""
+		if (self.currentIndex < 1):
+			prevIndex = len(self.workspaces)
+		prevIndex = self.currentIndex - 1
+		return self.workspaces[prevIndex]["name"]
+
+	def getNextWorkspaceName(self):
+		"""
+		Returns the name of the next workspace.
+		"""
+		nextIndex = self.currentIndex + 1
+		if (nextIndex >= len(self.workspaces)):
+			nextIndex = 0
+		return self.workspaces[nextIndex]["name"]
+
+	def switchWorkspace(self, name):
+		"""
+		Switches to the workspace with supplied name
+		"""
+		subprocess.call(["i3-msg", "workspace", str(name)])
+
+	def next(self):
+		"""
+		Switch to next workspace.
+		"""
+		self.switchWorkspace(self.getNextWorkspaceName())
+
+	def previous(self):
+		"""
+		Switch to previous workspace.
+		"""
+		self.switchWorkspace(self.getPreviousWorkspaceName())
+
+def main(arguments = []):
+	wm = I3Session()
+	try:
+		argument = arguments[1]
+		if (argument == "next"):
+			wm.next()
+		elif (argument == "previous" or argument == "prev"):
+			wm.previous()
+		else:
+			raise ValueError("Unrecognised parameter " + argument)
+	except IndexError:
+		wm.next()
+
+main(sys.argv)
