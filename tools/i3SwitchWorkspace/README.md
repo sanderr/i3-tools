@@ -12,22 +12,31 @@ which might make DP-1 your secondary output. Pressing the key combination would 
 
 ## i3 config
 To use this script, you should bind the desired workspaces to their corresponding outputs in your i3 config. For example:
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:LVDS1 output LVDS1
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:HDMI-0 output HDMI-0
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:DP-1 output DP-1
+
 This makes sure that when i3 switches to workspace 4:HDMI-0, the workspace appears on output HDMI-0. LVDS1 is the xrandr name of my laptop's primary output. I'm not
 sure if this is generic, you should check yours.
 
 If you prefer, you could use aliases for the outputs, for example d for DisplayPort, h for HDMI, p for primary laptop screen.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:p output LVDS1
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:h output HDMI-0
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workspace 4:d output DP-1
+
 
 ## output preference
 You can also order outputs by preference. If you would for example call "i3SwitchWorkspace.sh --preferred-outputs LVDS1 DP-1 DVI-D-1 DVI-I-1 HDMI-1 --output-number 2 --workspace 4"
 the connected outputs are ordered in the order you supplied, so if all above displays were connected, LVDS1 would be seeen as primary, DP-1 as secondary and so on. But if only LVDS1 and HDMI-1 are connected,
 HDMI-1 is seen as the secondary output.
 The same can be accomplished with aliases, for example:
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i3SwitchWorkspace.sh --preferred-outputs LVDS1,p DP-1,d DVI-D-1,dD DVI-I-1,dI HDMI-1,h --output-number 1 --workspace 4
 
 ## example
