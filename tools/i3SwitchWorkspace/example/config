@@ -1,0 +1,248 @@
+# set $sup to super key. Set this to something else if you already use super key as modifier key.
+set $sup Mod4
+
+# setting variables
+set $hdmi HDMI-1
+set $DP DP-1
+set $dviD DVI-D-1
+set $dviI DVI-I-1
+set $VGA VGA-1
+set $primaryOutput DP-1
+
+set $switchToPrimaryWorkspace i3SwitchWorkspace.sh --preferred-outputs DP-1,p DVI-D-1,dD DVI-I-1,dI HDMI-1 --output-number 1 --workspace
+set $switchToSecondaryWorkspace i3SwitchWorkspace.sh --preferred-outputs DP-1,p DVI-D-1,dD DVI-I-1,dI HDMI-1 --output-number 2 --workspace
+set $switchToTertiaryWorkspace i3SwitchWorkspace.sh --preferred-outputs DP-1,p DVI-D-1,dD DVI-I-1,dI HDMI-1 --output-number 3 --workspace
+
+# switch to workspace keybindings
+bindsym $mod+grave exec "$switchToPrimaryWorkspace 0"
+bindsym $mod+1 exec "$switchToPrimaryWorkspace 1"
+bindsym $mod+2 exec "$switchToPrimaryWorkspace 2"
+bindsym $mod+3 exec "$switchToPrimaryWorkspace 3"
+bindsym $mod+4 exec "$switchToPrimaryWorkspace 4"
+bindsym $mod+5 exec "$switchToPrimaryWorkspace 5"
+bindsym $mod+6 exec "$switchToPrimaryWorkspace 6"
+bindsym $mod+7 exec "$switchToPrimaryWorkspace 7"
+bindsym $mod+8 exec "$switchToPrimaryWorkspace 8"
+bindsym $mod+9 exec "$switchToPrimaryWorkspace 9"
+bindsym $mod+0 exec "$switchToPrimaryWorkspace 10"
+bindsym $mod+minus exec "$switchToPrimaryWorkspace 11"
+bindsym $mod+equal exec "i3-input -F 'workspace %s' -P focus\ on\ workspace\ "
+bindsym $mod+$ctl+grave exec "$switchToSecondaryWorkspace 0"
+bindsym $mod+$ctl+1 exec "$switchToSecondaryWorkspace 1"
+bindsym $mod+$ctl+2 exec "$switchToSecondaryWorkspace 2"
+bindsym $mod+$ctl+3 exec "$switchToSecondaryWorkspace 3"
+bindsym $mod+$ctl+4 exec "$switchToSecondaryWorkspace 4"
+bindsym $mod+$ctl+5 exec "$switchToSecondaryWorkspace 5"
+bindsym $mod+$ctl+6 exec "$switchToSecondaryWorkspace 6"
+bindsym $mod+$ctl+7 exec "$switchToSecondaryWorkspace 7"
+bindsym $mod+$ctl+8 exec "$switchToSecondaryWorkspace 8"
+bindsym $mod+$ctl+9 exec "$switchToSecondaryWorkspace 9"
+bindsym $mod+$ctl+0 exec "$switchToSecondaryWorkspace 10"
+bindsym $mod+$ctl+minus exec "$switchToSecondaryWorkspace 11"
+bindsym $mod+$sup+$ctl+grave exec "$switchToTertiaryWorkspace 0"
+bindsym $mod+$sup+$ctl+1 exec "$switchToTertiaryWorkspace 1"
+bindsym $mod+$sup+$ctl+2 exec "$switchToTertiaryWorkspace 2"
+bindsym $mod+$sup+$ctl+3 exec "$switchToTertiaryWorkspace 3"
+bindsym $mod+$sup+$ctl+4 exec "$switchToTertiaryWorkspace 4"
+bindsym $mod+$sup+$ctl+5 exec "$switchToTertiaryWorkspace 5"
+bindsym $mod+$sup+$ctl+6 exec "$switchToTertiaryWorkspace 6"
+bindsym $mod+$sup+$ctl+7 exec "$switchToTertiaryWorkspace 7"
+bindsym $mod+$sup+$ctl+8 exec "$switchToTertiaryWorkspace 8"
+bindsym $mod+$sup+$ctl+9 exec "$switchToTertiaryWorkspace 9"
+bindsym $mod+$sup+$ctl+0 exec "$switchToTertiaryWorkspace 10"
+
+# move focused container to workspace keybindings
+bindsym $mod+Shift+grave exec "$switchToPrimaryWorkspace 0 --move"
+bindsym $mod+Shift+1 exec "$switchToPrimaryWorkspace 1 --move"
+bindsym $mod+Shift+2 exec "$switchToPrimaryWorkspace 2 --move"
+bindsym $mod+Shift+3 exec "$switchToPrimaryWorkspace 3 --move"
+bindsym $mod+Shift+4 exec "$switchToPrimaryWorkspace 4 --move"
+bindsym $mod+Shift+5 exec "$switchToPrimaryWorkspace 5 --move"
+bindsym $mod+Shift+6 exec "$switchToPrimaryWorkspace 6 --move"
+bindsym $mod+Shift+7 exec "$switchToPrimaryWorkspace 7 --move"
+bindsym $mod+Shift+8 exec "$switchToPrimaryWorkspace 8 --move"
+bindsym $mod+Shift+9 exec "$switchToPrimaryWorkspace 9 --move"
+bindsym $mod+Shift+0 exec "$switchToPrimaryWorkspace 10 --move"
+bindsym $mod+Shift+minus exec "$switchToPrimaryWorkspace 11 --move"
+bindsym $mod+Shift+equal exec "i3-input -F 'move container to workspace %s' -P move\ to\ workspace\ "
+bindsym $mod+$ctl+Shift+grave exec "$switchToSecondaryWorkspace 0 --move"
+bindsym $mod+$ctl+Shift+1 exec "$switchToSecondaryWorkspace 1 --move"
+bindsym $mod+$ctl+Shift+2 exec "$switchToSecondaryWorkspace 2 --move"
+bindsym $mod+$ctl+Shift+3 exec "$switchToSecondaryWorkspace 3 --move"
+bindsym $mod+$ctl+Shift+4 exec "$switchToSecondaryWorkspace 4 --move"
+bindsym $mod+$ctl+Shift+5 exec "$switchToSecondaryWorkspace 5 --move"
+bindsym $mod+$ctl+Shift+6 exec "$switchToSecondaryWorkspace 6 --move"
+bindsym $mod+$ctl+Shift+7 exec "$switchToSecondaryWorkspace 7 --move"
+bindsym $mod+$ctl+Shift+8 exec "$switchToSecondaryWorkspace 8 --move"
+bindsym $mod+$ctl+Shift+9 exec "$switchToSecondaryWorkspace 9 --move"
+bindsym $mod+$ctl+Shift+0 exec "$switchToSecondaryWorkspace 10 --move"
+bindsym $mod+$ctl+Shift+minus exec "$switchToSecondaryWorkspace 11 --move"
+bindsym $mod+$sup+$ctl+Shift+grave exec "$switchToTertiaryWorkspace 0 --move"
+bindsym $mod+$sup+$ctl+Shift+1 exec "$switchToTertiaryWorkspace 1 --move"
+bindsym $mod+$sup+$ctl+Shift+2 exec "$switchToTertiaryWorkspace 2 --move"
+bindsym $mod+$sup+$ctl+Shift+3 exec "$switchToTertiaryWorkspace 3 --move"
+bindsym $mod+$sup+$ctl+Shift+4 exec "$switchToTertiaryWorkspace 4 --move"
+bindsym $mod+$sup+$ctl+Shift+5 exec "$switchToTertiaryWorkspace 5 --move"
+bindsym $mod+$sup+$ctl+Shift+6 exec "$switchToTertiaryWorkspace 6 --move"
+bindsym $mod+$sup+$ctl+Shift+7 exec "$switchToTertiaryWorkspace 7 --move"
+bindsym $mod+$sup+$ctl+Shift+8 exec "$switchToTertiaryWorkspace 8 --move"
+bindsym $mod+$sup+$ctl+Shift+9 exec "$switchToTertiaryWorkspace 9 --move"
+bindsym $mod+$sup+$ctl+Shift+0 exec "$switchToTertiaryWorkspace 10 --move"
+bindsym $mod+$sup+$ctl+Shift+minus exec "$switchToTertiaryWorkspace 11 --move"
+
+# bind workspaces to outputs
+workspace 0:p output $DP
+workspace 1:p output $DP
+workspace 2:p output $DP
+workspace 3:p output $DP
+workspace 4:p output $DP
+workspace 5:p output $DP
+workspace 6:p output $DP
+workspace 7:p output $DP
+workspace 8:p output $DP
+workspace 9:p output $DP
+workspace 10:p output $DP
+workspace 11:p output $DP
+
+workspace 0:$hdmi output $hdmi
+workspace 1:$hdmi output $hdmi
+workspace 2:$hdmi output $hdmi
+workspace 3:$hdmi output $hdmi
+workspace 4:$hdmi output $hdmi
+workspace 5:$hdmi output $hdmi
+workspace 6:$hdmi output $hdmi
+workspace 7:$hdmi output $hdmi
+workspace 8:$hdmi output $hdmi
+workspace 9:$hdmi output $hdmi
+workspace 10:$hdmi output $hdmi
+workspace 11:$hdmi output $hdmi
+
+workspace 0:$hdmiTwo output $hdmiTwo
+workspace 1:$hdmiTwo output $hdmiTwo
+workspace 2:$hdmiTwo output $hdmiTwo
+workspace 3:$hdmiTwo output $hdmiTwo
+workspace 4:$hdmiTwo output $hdmiTwo
+workspace 5:$hdmiTwo output $hdmiTwo
+workspace 6:$hdmiTwo output $hdmiTwo
+workspace 7:$hdmiTwo output $hdmiTwo
+workspace 8:$hdmiTwo output $hdmiTwo
+workspace 9:$hdmiTwo output $hdmiTwo
+workspace 10:$hdmiTwo output $hdmiTwo
+workspace 11:$hdmiTwo output $hdmiTwo
+
+workspace 0:h output $hdmiThree
+workspace 1:h output $hdmiThree
+workspace 2:h output $hdmiThree
+workspace 3:h output $hdmiThree
+workspace 4:h output $hdmiThree
+workspace 5:h output $hdmiThree
+workspace 6:h output $hdmiThree
+workspace 7:h output $hdmiThree
+workspace 8:h output $hdmiThree
+workspace 9:h output $hdmiThree
+workspace 10:h output $hdmiThree
+workspace 11:h output $hdmiThree
+
+workspace 0:$DP output $DP
+workspace 1:$DP output $DP
+workspace 2:$DP output $DP
+workspace 3:$DP output $DP
+workspace 4:$DP output $DP
+workspace 5:$DP output $DP
+workspace 6:$DP output $DP
+workspace 7:$DP output $DP
+workspace 8:$DP output $DP
+workspace 9:$DP output $DP
+workspace 10:$DP output $DP
+workspace 11:$DP output $DP
+
+workspace 0:d output $DPTwo
+workspace 1:d output $DPTwo
+workspace 2:d output $DPTwo
+workspace 3:d output $DPTwo
+workspace 4:d output $DPTwo
+workspace 5:d output $DPTwo
+workspace 6:d output $DPTwo
+workspace 7:d output $DPTwo
+workspace 8:d output $DPTwo
+workspace 9:d output $DPTwo
+workspace 10:d output $DPTwo
+workspace 11:d output $DPTwo
+
+workspace 0:dD output $dviD
+workspace 1:dD output $dviD
+workspace 2:dD output $dviD
+workspace 3:dD output $dviD
+workspace 4:dD output $dviD
+workspace 5:dD output $dviD
+workspace 6:dD output $dviD
+workspace 7:dD output $dviD
+workspace 8:dD output $dviD
+workspace 9:dD output $dviD
+workspace 10:dD output $dviD
+workspace 11:dD output $dviD
+
+workspace 0:$dviD output $dviD
+workspace 1:$dviD output $dviD
+workspace 2:$dviD output $dviD
+workspace 3:$dviD output $dviD
+workspace 4:$dviD output $dviD
+workspace 5:$dviD output $dviD
+workspace 6:$dviD output $dviD
+workspace 7:$dviD output $dviD
+workspace 8:$dviD output $dviD
+workspace 9:$dviD output $dviD
+workspace 10:$dviD output $dviD
+workspace 11:$dviD output $dviD
+
+workspace 0:dI output $dviI
+workspace 1:dI output $dviI
+workspace 2:dI output $dviI
+workspace 3:dI output $dviI
+workspace 4:dI output $dviI
+workspace 5:dI output $dviI
+workspace 6:dI output $dviI
+workspace 7:dI output $dviI
+workspace 8:dI output $dviI
+workspace 9:dI output $dviI
+workspace 10:dI output $dviI
+workspace 11:dI output $dviI
+
+workspace 0:$dviI output $dviI
+workspace 1:$dviI output $dviI
+workspace 2:$dviI output $dviI
+workspace 3:$dviI output $dviI
+workspace 4:$dviI output $dviI
+workspace 5:$dviI output $dviI
+workspace 6:$dviI output $dviI
+workspace 7:$dviI output $dviI
+workspace 8:$dviI output $dviI
+workspace 9:$dviI output $dviI
+workspace 10:$dviI output $dviI
+workspace 11:$dviI output $dviI
+
+workspace 0:$VGA output $VGA
+workspace 1:$VGA output $VGA
+workspace 2:$VGA output $VGA
+workspace 3:$VGA output $VGA
+workspace 4:$VGA output $VGA
+workspace 5:$VGA output $VGA
+workspace 6:$VGA output $VGA
+workspace 7:$VGA output $VGA
+workspace 8:$VGA output $VGA
+workspace 9:$VGA output $VGA
+workspace 10:$VGA output $VGA
+workspace 11:$VGA output $VGA
+
+workspace 0 output $primaryOutput
+workspace 1 output $primaryOutput
+workspace 2 output $primaryOutput
+workspace 3 output $primaryOutput
+workspace 4 output $primaryOutput
+workspace 5 output $primaryOutput
+workspace 6 output $primaryOutput
+workspace 7 output $primaryOutput
+workspace 8 output $primaryOutput
+workspace 9 output $primaryOutput
+workspace 10 output $primaryOutput
+workspace 11 output $primaryOutput
