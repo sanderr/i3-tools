@@ -33,7 +33,7 @@ If you prefer, you could use aliases for the outputs, for example d for DisplayP
 
 ## output preference
 You can also order outputs by preference. If you would for example call "i3SwitchWorkspace.sh --preferred-outputs LVDS1 DP-1 DVI-D-1 DVI-I-1 HDMI-1 --output-number 2 --workspace 4"
-the connected outputs are ordered in the order you supplied, so if all above displays were connected, LVDS1 would be seeen as primary, DP-1 as secondary and so on. But if only LVDS1 and HDMI-1 are connected,
+the connected outputs are ordered in the order you supplied, so if all above displays were connected, LVDS1 would be seen as primary, DP-1 as secondary and so on. But if only LVDS1 and HDMI-1 are connected,
 HDMI-1 is seen as the secondary output.
 The same can be accomplished with aliases, for example:
 
